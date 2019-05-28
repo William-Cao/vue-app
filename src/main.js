@@ -9,10 +9,12 @@
 
 import Vue from 'vue'
 // import Vuex from 'vuex'
+// import vuex from './vuex/vuex'
+
 import App from './App'
 import router from './router'
-
-// Vue.use(Vuex)
+// import http from './utils/http'
+// import store from './store/store'
 // Vue.use(iView)
 // Vue.use(ElementUI)
 
@@ -22,6 +24,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  // vuex,
   components: { App },
   template: '<App/>'
 })

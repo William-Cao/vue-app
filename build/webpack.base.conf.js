@@ -24,6 +24,11 @@ module.exports = {
   entry: {
     app: './src/main.js'
   },
+  // externals: {
+  //   'BMap': 'BMap',
+  //   'echarts': 'echarts',
+  //   'Swiper': 'Swiper'
+  // },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -50,6 +55,14 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+      },
+      {
+        test: /\.less$/,
+        loader: 'style-loader!css-loader!less-loader',
+      },
+      {
+        test: /\.sass$/,
+        loader: 'style-loader!css-loader!sass-loader',
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
