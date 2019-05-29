@@ -13,10 +13,14 @@ import Vue from 'vue'
 
 import App from './App'
 import router from './router'
-// import http from './utils/http'
+import http from './utils/http'
 // import store from './store/store'
 // Vue.use(iView)
 // Vue.use(ElementUI)
+
+require('../mock/index') //引入mock数据，关闭则注释该行9
+
+Vue.prototype.$http = http
 
 Vue.config.productionTip = false
 

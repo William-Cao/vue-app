@@ -2,11 +2,12 @@
 
 > A Vue.js project
 
-##  information
+## information
 
 - 添加 `syntax-dynamic-import` 插件实现路由懒加载
 - 修改 `ESlint` 语法规则
 - 修改基于脚手架中的 `webpack` 配置
+- 添加 `mock` 示例
 
 ## Build Setup
 
