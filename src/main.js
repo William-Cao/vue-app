@@ -18,7 +18,7 @@ import http from './utils/http'
 // Vue.use(iView)
 // Vue.use(ElementUI)
 
-require('../mock/index') //引入mock数据，关闭则注释该行9
+require('../mock/index') //引入mock数据，关闭则注释该行
 
 Vue.prototype.$http = http
 
