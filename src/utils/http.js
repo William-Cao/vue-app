@@ -9,19 +9,19 @@ axios.interceptors.request.use(config => {
 })
 
 axios.interceptors.response.use(response => {
-  return response
+  return checkStatus(response)
 }, error => {
   return Promise.reject(error.response)
 })
 
 function checkStatus (response) {
   // http状态码正常，则直接返回数据
-  if (response && (response.status === 200 || response.status === 304)) {
+  if (response.status === 200 || response.status === 304) {
     // 如果不需要除了data之外的数据，可以直接 return response.data
-    return response
+    return Promise.resolve(response)
   }
   // 异常状态下，把错误信息返回去
-  return new Error()
+  return Promise.reject(response)
 }
 
 export default {
@@ -35,9 +35,7 @@ export default {
       // headers: {
       //   'X-Requested-With': 'XMLHttpRequest'
       // }
-    }).then(
-      response => { return checkStatus(response) }
-    )
+    })
   },
   post (url, data) {
     return axios({
@@ -50,7 +48,7 @@ export default {
       //   'X-Requested-With': 'XMLHttpRequest',
       //   'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       // }
-    }).then(response => { return checkStatus(response) })
+    })
   },
   all (array) {
     // spread分割
